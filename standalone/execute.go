@@ -79,7 +79,7 @@ func ExecuteNoChannel(wg *sync.WaitGroup, job Action, p string, pids chan PidI, 
         t1 := time.Now()
         var cmd *exec.Cmd
         if p == "N"{
-		cmd = exec.Command("schedtool","-N","20","-a",cpuC,"-e","python", job.Exec, strconv.Itoa(job.Para),strconv.Itoa(job.Id))
+		cmd = exec.Command("schedtool","-N","-a",cpuC,"-e","python", job.Exec, strconv.Itoa(job.Para),strconv.Itoa(job.Id))
         }else{
                 cmd = exec.Command("schedtool","-R","-p","20","-a","0x1","-e","python", job.Exec, strconv.Itoa(job.Para),strconv.Itoa(job.Id))
         }
